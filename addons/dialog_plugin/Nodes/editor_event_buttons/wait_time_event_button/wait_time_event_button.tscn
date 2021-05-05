@@ -4,11 +4,11 @@
 [ext_resource path="res://addons/dialog_plugin/Resources/Events/WaitTimeEvent/WaitTimeEvent.gd" type="Script" id=2]
 [ext_resource path="res://addons/dialog_plugin/assets/Images/Event Icons/Main Icons/wait-seconds.svg" type="Texture" id=3]
 
-[sub_resource type="Resource" id=1]
+[sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 wait_time = 0.0
 
 [node name="GenericEventButton" instance=ExtResource( 1 )]
 text = "Wait Time"
 icon = ExtResource( 3 )
-event_resource = SubResource( 1 )
+event_resource = SubResource( 2 )

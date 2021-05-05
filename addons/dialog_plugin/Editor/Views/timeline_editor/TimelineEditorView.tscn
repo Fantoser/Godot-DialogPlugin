@@ -17,7 +17,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 TimelineEventsContainer_path = NodePath("VBoxContainer/HBoxContainer/HSplitContainer/ScrollContainer/TimelineEventsContainer")
-TimelinePreview_path = NodePath("TimelinePreview")
+TimelinePreview_path = NodePath("VBoxContainer/HBoxContainer/HSplitContainer/TimelinePreview")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -90,7 +90,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 870.0
+margin_right = 820.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -98,14 +98,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BrowserContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HSplitContainer"]
 margin_right = 200.0
 margin_bottom = 550.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/HSplitContainer"]
 margin_left = 212.0
-margin_right = 870.0
+margin_right = 820.0
 margin_bottom = 550.0
 rect_min_size = Vector2( 0, 210 )
 size_flags_horizontal = 3
@@ -114,36 +115,35 @@ follow_focus = true
 scroll_horizontal_enabled = false
 
 [node name="TimelineEventsContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/HSplitContainer/ScrollContainer"]
-margin_right = 658.0
+margin_right = 608.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 5 )
 
-[node name="ButtonContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 874.0
+[node name="TimelinePreview" parent="VBoxContainer/HBoxContainer/HSplitContainer" instance=ExtResource( 4 )]
+visible = false
+DialogNode_path = NodePath("../../HBoxContainer/HSplitContainer/TimelinePreview/VBoxContainer/TimelinePreviewNode")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 824.0
 margin_right = 1024.0
 margin_bottom = 550.0
-rect_min_size = Vector2( 150, 0 )
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 3
 
-[node name="TextEventButton" parent="VBoxContainer/HBoxContainer/ButtonContainer" instance=ExtResource( 6 )]
-margin_right = 150.0
-focus_mode = 2
-enabled_focus_mode = 2
+[node name="TextEventButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_right = 200.0
 
-[node name="WaitEventButton" parent="VBoxContainer/HBoxContainer/ButtonContainer" instance=ExtResource( 7 )]
+[node name="GenericEventButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 7 )]
 margin_top = 26.0
-margin_right = 150.0
+margin_right = 200.0
 margin_bottom = 48.0
-focus_mode = 2
-enabled_focus_mode = 2
 
-[node name="JoinEventButton" parent="VBoxContainer/HBoxContainer/ButtonContainer" instance=ExtResource( 8 )]
+[node name="JoinEventButton" parent="VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 8 )]
 margin_top = 52.0
-margin_right = 150.0
+margin_right = 200.0
 margin_bottom = 74.0
-focus_mode = 2
-enabled_focus_mode = 2
 
 [node name="EventButtonsContainer" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -151,14 +151,8 @@ margin_left = 532.736
 margin_top = 58.6326
 margin_right = 642.736
 margin_bottom = 173.633
-
-[node name="TimelinePreview" parent="." instance=ExtResource( 4 )]
-visible = false
-margin_top = 50.0
-margin_bottom = 600.0
-DialogNode_path = NodePath("../../../TimelinePreview/VBoxContainer/TimelinePreviewNode")
 [connection signal="item_added" from="VBoxContainer/HBoxContainer/HSplitContainer/ScrollContainer/TimelineEventsContainer" to="." method="_on_TimelineEventsContainer_item_added"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/TextEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/WaitEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonContainer/JoinEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/TextEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GenericEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/JoinEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
 [connection signal="event_pressed" from="EventButtonsContainer" to="." method="_on_EventButtonsContainer_event_pressed"]

@@ -159,6 +159,7 @@ margin_bottom = 179.0
 margin_top = 44.0
 margin_right = 274.0
 margin_bottom = 136.0
+
 [connection signal="pressed" from="PanelContainer/ToolButtons/TimelinesButton" to="." method="_on_TimelinesButton_pressed"]
 [connection signal="pressed" from="PanelContainer/ToolButtons/CharactersButton" to="." method="_on_CharactersButton_pressed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
@@ -172,5 +173,4 @@ margin_bottom = 136.0
 [connection signal="confirmed" from="NewCharacterPopup" to="." method="_on_NewCharacterPopup_confirmed"]
 
 [editable path="TimelineListPopUp"]
-
 [editable path="CharacterListPopUp"]

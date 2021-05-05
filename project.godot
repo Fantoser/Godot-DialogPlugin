@@ -149,7 +149,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "dialog_plugin" )
 
 [importer_defaults]
 

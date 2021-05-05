@@ -1,8 +1,6 @@
 tool
 extends Control
 
-signal event_pressed(event_resource)
-
 const DialogUtil = preload("res://addons/dialog_plugin/Core/DialogUtil.gd")
 
 export(NodePath) var TimelineEventsContainer_path:NodePath
@@ -26,6 +24,7 @@ func _ready() -> void:
 func _draw() -> void:
 	if not visible:
 		_unload_events()
+
 
 func add_event(event_resource:DialogEventResource) -> void:
 	var events:Array = base_resource.events.get_resources()
