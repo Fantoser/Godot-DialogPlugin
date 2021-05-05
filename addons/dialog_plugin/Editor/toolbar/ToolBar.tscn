@@ -58,9 +58,6 @@ rect_min_size = Vector2( 99, 24 )
 text = "Timelines"
 icon = SubResource( 2 )
 expand_icon = true
-__meta__ = {
-"TEXT_KEY": "Timelines"
-}
 
 [node name="CharactersButton" type="Button" parent="PanelContainer/ToolButtons"]
 margin_left = 111.0
@@ -68,9 +65,6 @@ margin_right = 190.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 0, 38 )
 text = "Characters"
-__meta__ = {
-"TEXT_KEY": "Characters"
-}
 
 [node name="ConfigurationButton" type="Button" parent="PanelContainer/ToolButtons"]
 margin_left = 202.0
@@ -79,9 +73,6 @@ margin_bottom = 38.0
 size_flags_horizontal = 10
 disabled = true
 text = "Configuration"
-__meta__ = {
-"TEXT_KEY": "Configuration"
-}
 
 [node name="InfoLabel" type="Label" parent="PanelContainer"]
 visible = false
@@ -168,7 +159,6 @@ margin_bottom = 179.0
 margin_top = 44.0
 margin_right = 274.0
 margin_bottom = 136.0
-
 [connection signal="pressed" from="PanelContainer/ToolButtons/TimelinesButton" to="." method="_on_TimelinesButton_pressed"]
 [connection signal="pressed" from="PanelContainer/ToolButtons/CharactersButton" to="." method="_on_CharactersButton_pressed"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
@@ -182,4 +172,5 @@ margin_bottom = 136.0
 [connection signal="confirmed" from="NewCharacterPopup" to="." method="_on_NewCharacterPopup_confirmed"]
 
 [editable path="TimelineListPopUp"]
+
 [editable path="CharacterListPopUp"]

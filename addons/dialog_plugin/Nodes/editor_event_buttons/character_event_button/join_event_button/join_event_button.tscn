@@ -8,6 +8,7 @@
 script = ExtResource( 3 )
 selected_portrait = 0
 selected_position = 0
+selected_animation = 0
 skip = true
 
 [node name="JoinEventButton" instance=ExtResource( 1 )]
