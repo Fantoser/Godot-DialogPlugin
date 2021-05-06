@@ -20,12 +20,63 @@ margin_left = 5.0
 margin_top = 22.0
 margin_right = -4.0
 size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ViewContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1008.0
+margin_bottom = 571.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+collapsed = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ViewContainer/HSplitContainer"]
+margin_right = 278.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ViewContainer/HSplitContainer/VBoxContainer"]
+margin_right = 278.0
+margin_bottom = 20.0
+
+[node name="Button" type="Button" parent="ViewContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
+margin_right = 66.0
+margin_bottom = 20.0
+text = "REFRESH"
+
+[node name="Button2" type="Button" parent="ViewContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
+margin_left = 70.0
+margin_right = 170.0
+margin_bottom = 20.0
+text = "New Timeline"
+
+[node name="Button3" type="Button" parent="ViewContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
+margin_left = 174.0
+margin_right = 278.0
+margin_bottom = 20.0
+text = "New Character"
+
+[node name="Tree" type="Tree" parent="ViewContainer/HSplitContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 278.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 20, 20 )
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="PanelContainer" parent="ViewContainer/HSplitContainer"]
+margin_left = 290.0
+margin_right = 1001.0
+margin_bottom = 564.0
+size_flags_vertical = 3
 
 [node name="ToolBar" parent="." instance=ExtResource( 1 )]
 margin_left = 352.0
 margin_right = -366.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 153, 0 )
-
 [connection signal="character_selected" from="ToolBar" to="." method="_on_ToolBar_character_selected"]
 [connection signal="timeline_selected" from="ToolBar" to="." method="_on_ToolBar_timeline_selected"]
