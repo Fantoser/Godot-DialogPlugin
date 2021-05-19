@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/dialog_plugin/Editor/toolbar/ToolBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/dialog_plugin/Editor/node_list/DirectoryTree.gd" type="Script" id=2]
+[ext_resource path="res://addons/dialog_plugin/Editor/node_list/folder_container/folder_container.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/dialog_plugin/Editor/node_list/item/item.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/dialog_plugin/Editor/EditorView.gd" type="Script" id=9]
 
 [node name="EditorView" type="Control"]
@@ -19,58 +22,60 @@ anchor_bottom = 1.0
 margin_left = 5.0
 margin_top = 22.0
 margin_right = -4.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSplitContainer" type="HSplitContainer" parent="ViewContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ViewContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1008.0
 margin_bottom = 571.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-collapsed = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ViewContainer/HSplitContainer"]
-margin_right = 278.0
+[node name="VBoxContainer" type="VBoxContainer" parent="ViewContainer/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 564.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ViewContainer/HBoxContainer/VBoxContainer"]
+margin_right = 214.0
+margin_bottom = 20.0
+
+[node name="Button" type="Button" parent="ViewContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 86.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "LOAD FILES"
+
+[node name="PanelContainer" type="PanelContainer" parent="ViewContainer/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 214.0
 margin_bottom = 564.0
 rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ViewContainer/HSplitContainer/VBoxContainer"]
-margin_right = 278.0
-margin_bottom = 20.0
-
-[node name="Button" type="Button" parent="ViewContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
-margin_right = 66.0
-margin_bottom = 20.0
-text = "REFRESH"
-
-[node name="Button2" type="Button" parent="ViewContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
-margin_left = 70.0
-margin_right = 170.0
-margin_bottom = 20.0
-text = "New Timeline"
-
-[node name="Button3" type="Button" parent="ViewContainer/HSplitContainer/VBoxContainer/HBoxContainer"]
-margin_left = 174.0
-margin_right = 278.0
-margin_bottom = 20.0
-text = "New Character"
-
-[node name="Tree" type="Tree" parent="ViewContainer/HSplitContainer/VBoxContainer"]
-margin_top = 24.0
-margin_right = 278.0
-margin_bottom = 564.0
-rect_min_size = Vector2( 20, 20 )
+[node name="DirectoryTree" type="VBoxContainer" parent="ViewContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 207.0
+margin_bottom = 533.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource( 2 )
+ItemScene = ExtResource( 4 )
+FolderScene = ExtResource( 3 )
 
-[node name="CenterContainer" type="PanelContainer" parent="ViewContainer/HSplitContainer"]
-margin_left = 290.0
-margin_right = 1001.0
-margin_bottom = 564.0
+[node name="Tree" type="Tree" parent="ViewContainer/HBoxContainer/VBoxContainer/PanelContainer/DirectoryTree"]
+margin_right = 200.0
+margin_bottom = 526.0
+focus_mode = 0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ToolBar" parent="." instance=ExtResource( 1 )]
@@ -78,5 +83,7 @@ margin_left = 352.0
 margin_right = -366.0
 margin_bottom = 63.0
 rect_pivot_offset = Vector2( 153, 0 )
+[connection signal="pressed" from="ViewContainer/HBoxContainer/VBoxContainer/HBoxContainer/Button" to="." method="load_items"]
+[connection signal="item_activated" from="ViewContainer/HBoxContainer/VBoxContainer/PanelContainer/DirectoryTree/Tree" to="." method="_on_Tree_item_activated"]
 [connection signal="character_selected" from="ToolBar" to="." method="_on_ToolBar_character_selected"]
 [connection signal="timeline_selected" from="ToolBar" to="." method="_on_ToolBar_timeline_selected"]

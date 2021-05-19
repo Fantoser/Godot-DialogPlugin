@@ -7,7 +7,7 @@
 [ext_resource path="res://addons/dialog_plugin/assets/Themes/toolbar_hide_button.tres" type="StyleBox" id=5]
 [ext_resource path="res://addons/dialog_plugin/Editor/toolbar/CheckBox.gd" type="Script" id=6]
 
-[sub_resource type="Image" id=5]
+[sub_resource type="Image" id=1]
 data = {
 "data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
 "format": "LumAlpha8",
@@ -19,7 +19,7 @@ data = {
 [sub_resource type="ImageTexture" id=2]
 flags = 4
 flags = 4
-image = SubResource( 5 )
+image = SubResource( 1 )
 size = Vector2( 16, 16 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
@@ -55,20 +55,22 @@ alignment = 1
 margin_right = 99.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 99, 24 )
-focus_mode = 0
-enabled_focus_mode = 0
 text = "Timelines"
 icon = SubResource( 2 )
 expand_icon = true
+__meta__ = {
+"TEXT_KEY": "Timelines"
+}
 
 [node name="CharactersButton" type="Button" parent="PanelContainer/ToolButtons"]
 margin_left = 111.0
 margin_right = 190.0
 margin_bottom = 38.0
 rect_min_size = Vector2( 0, 38 )
-focus_mode = 0
-enabled_focus_mode = 0
 text = "Characters"
+__meta__ = {
+"TEXT_KEY": "Characters"
+}
 
 [node name="ConfigurationButton" type="Button" parent="PanelContainer/ToolButtons"]
 margin_left = 202.0
@@ -77,6 +79,9 @@ margin_bottom = 38.0
 size_flags_horizontal = 10
 disabled = true
 text = "Configuration"
+__meta__ = {
+"TEXT_KEY": "Configuration"
+}
 
 [node name="InfoLabel" type="Label" parent="PanelContainer"]
 visible = false
@@ -103,9 +108,9 @@ script = ExtResource( 6 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false
-margin_top = 44.0
-margin_right = 274.0
-margin_bottom = 44.0
+margin_top = 63.0
+margin_right = 306.0
+margin_bottom = 63.0
 
 [node name="TimelineListPopUp" parent="." instance=ExtResource( 2 )]
 visible = true
@@ -133,32 +138,33 @@ margin_right = 240.0
 margin_bottom = 268.0
 
 [node name="NewTimelinePopup" parent="." instance=ExtResource( 3 )]
-margin_top = 44.0
-margin_right = 274.0
-margin_bottom = 136.0
+visible = true
+margin_top = 333.0
+margin_right = 306.0
+margin_bottom = 425.0
 
 [node name="CharacterListPopUp" parent="." instance=ExtResource( 2 )]
-margin_top = 63.0
-margin_right = 242.0
-margin_bottom = 333.0
+margin_top = 230.0
+margin_right = 200.0
+margin_bottom = 411.0
 size_flags_horizontal = 0
 
 [node name="PanelContainer2" parent="CharacterListPopUp/VBoxContainer" index="0"]
-margin_right = 240.0
+margin_right = 198.0
 
 [node name="Title" parent="CharacterListPopUp/VBoxContainer/PanelContainer2" index="0"]
-margin_right = 238.0
+margin_right = 196.0
 text = "Characters"
 
 [node name="PanelContainer" parent="CharacterListPopUp/VBoxContainer" index="1"]
-margin_right = 240.0
+margin_right = 198.0
 
 [node name="HBoxContainer" parent="CharacterListPopUp/VBoxContainer/PanelContainer" index="0"]
-margin_right = 234.0
+margin_right = 192.0
 
 [node name="NodeList" parent="CharacterListPopUp/VBoxContainer" index="2"]
-margin_right = 240.0
-margin_bottom = 268.0
+margin_right = 198.0
+margin_bottom = 179.0
 
 [node name="NewCharacterPopup" parent="." instance=ExtResource( 3 )]
 margin_top = 44.0

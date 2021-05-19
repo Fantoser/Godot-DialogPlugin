@@ -7,7 +7,7 @@ class Error:
 	const TIMELINE_NOT_FOUND = "TIMELINE_NOT_FOUND"
 	const TIMELINE_NOT_SELECTED = "TIMELINE_NOT_SELECTED"
 	
-	const DIALOGNODE_IS_NOT_CHILD_OF_CANVASLAYER = "You didn't add this node to a CanvasLayer or Control node. If this was intentional, you can ignore this warning."
+	const DIALOGNODE_IS_NOT_CHILD_OF_CANVASLAYER = "DIALOGNODE_IS_NOT_CHILD_OF_CANVASLAYER"
 	
 	static func not_found_timeline() -> DialogTimelineResource:
 		var _timeline = DialogTimelineResource.new()
@@ -25,7 +25,7 @@ class Error:
 		_char_join_event.character = _character
 		
 		_text_event.character = _character
-		_text_event.text = TIMELINE_NOT_SELECTED
+		_text_event.translation_key = TIMELINE_NOT_SELECTED
 		_timeline.events.add(_char_join_event)
 		_timeline.events.add(_text_event)
 		

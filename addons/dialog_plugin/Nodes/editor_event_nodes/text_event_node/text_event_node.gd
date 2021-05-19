@@ -3,10 +3,13 @@ extends DialogEditorEventNode
 
 export(NodePath) var TextEdit_path:NodePath
 export(NodePath) var CharacterBtn_path:NodePath
+export(NodePath) var TranslationKeyLabel_path:NodePath
 
 onready var text_edit_node = get_node_or_null(TextEdit_path)
 onready var character_button_node = get_node_or_null(CharacterBtn_path)
+onready var translation_key_label_node = get_node_or_null(TranslationKeyLabel_path)
 
+signal text_editor_selected()
 
 func _ready() -> void:
 	if base_resource:
@@ -15,16 +18,27 @@ func _ready() -> void:
 		return
 
 func _update_node_values() -> void:
-	text_edit_node.text = base_resource.text
+	var _text = base_resource.text
+	if base_resource.translation_key != "__SAME_AS_TEXT__":
+		_text = TranslationService.translate(base_resource.translation_key)
+		if _text == base_resource.translation_key:
+			_text = ""
+	text_edit_node.text = _text
+	
 	if base_resource.character:
 		character_button_node.select_item_by_resource(base_resource.character)
 	else:
 		character_button_node.select(0)
+	
+	if not base_resource.translation_key or base_resource.translation_key == base_resource.SAME_AS_TEXT:
+		translation_key_label_node.text = ""
+	else:
+		translation_key_label_node.text = base_resource.translation_key
+	
 	index_label_node.text = str(idx)
 
 
 func _save_resource() -> void:
-	var _res = base_resource
 	emit_signal("save_item_requested", base_resource)
 
 
@@ -49,3 +63,20 @@ func _on_CharactersButton_item_selected(index: int) -> void:
 	else:
 		base_resource.character = null
 	_save_resource()
+
+
+func _on_TranslationKey_text_changed(new_text: String) -> void:
+	var _translation_key = new_text
+	if not _translation_key:
+		_translation_key = "__SAME_AS_TEXT__"
+	
+	if _translation_key != base_resource.translation_key:
+		base_resource.translation_key = _translation_key
+
+
+func _on_TranslationKey_focus_exited() -> void:
+	_save_resource()
+
+
+func _on_Edit_text_pressed():
+	emit_signal("text_editor_selected")

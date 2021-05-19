@@ -40,6 +40,5 @@ margin_bottom = 42.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="text_entered" from="MarginContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]

@@ -43,6 +43,7 @@ resource_name = "TextEvent"
 script = ExtResource( 5 )
 text = ""
 character = SubResource( 3 )
+translation_key = "__SAME_AS_TEXT__"
 
 [sub_resource type="Image" id=10]
 data = {
@@ -153,7 +154,6 @@ custom_constants/check_vadjust = 0
 pressed = true
 align = 1
 script = ExtResource( 8 )
-
 [connection signal="gui_input" from="PanelContainer" to="." method="_on_PanelContainer_gui_input"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/EventButtons/TextEventButton" to="." method="_on_EventButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/EventButtons/GenericEventButton" to="." method="_on_EventButton_pressed"]

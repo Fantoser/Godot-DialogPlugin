@@ -12,15 +12,16 @@ func _ready() -> void:
 	instance_editor_scene()
 
 
-func _draw() -> void:
-	if visible:
-		instance_editor_scene()
-
 func scan_resources() -> void:
 	DialogDB.Timelines.get_database().scan_resources_folder()
 	DialogDB.Characters.get_database().scan_resources_folder()
+	DialogDB.Translations.get_database().scan_resources_folder()
 
 func instance_editor_scene() -> void:
 	if not _editor_node:
 		_editor_node = editor_view_scene.instance()
 		call_deferred("add_child", _editor_node)
+	
+func _exit_tree() -> void:
+	if is_instance_valid(_editor_node):
+		_editor_node.queue_free()
