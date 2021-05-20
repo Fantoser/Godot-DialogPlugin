@@ -1,11 +1,13 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
+[ext_resource path="res://dialog_files/timelines/Test.tres" type="Resource" id=1]
 [ext_resource path="res://addons/dialog_plugin/Resources/Database/TimelineDatabaseResource.gd" type="Script" id=2]
 [ext_resource path="res://addons/dialog_plugin/Other/resource_array.gd" type="Script" id=3]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
-_resources = [  ]
+_resources = [ ExtResource( 1 ) ]
+values/0 = ExtResource( 1 )
 
 [resource]
 script = ExtResource( 2 )

@@ -114,38 +114,40 @@ script = ExtResource( 6 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 visible = false
-margin_top = 44.0
-margin_right = 274.0
-margin_bottom = 44.0
+margin_top = 63.0
+margin_right = 306.0
+margin_bottom = 63.0
 
 [node name="TimelineListPopUp" parent="." instance=ExtResource( 2 )]
-margin_top = 49.0
-margin_right = 200.0
-margin_bottom = 230.0
+visible = true
+margin_top = 63.0
+margin_right = 242.0
+margin_bottom = 333.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="PanelContainer2" parent="TimelineListPopUp/VBoxContainer" index="0"]
-margin_right = 198.0
+margin_right = 240.0
 
 [node name="Title" parent="TimelineListPopUp/VBoxContainer/PanelContainer2" index="0"]
-margin_right = 196.0
+margin_right = 238.0
 text = "Timelines"
 
 [node name="PanelContainer" parent="TimelineListPopUp/VBoxContainer" index="1"]
-margin_right = 198.0
+margin_right = 240.0
 
 [node name="HBoxContainer" parent="TimelineListPopUp/VBoxContainer/PanelContainer" index="0"]
-margin_right = 192.0
+margin_right = 234.0
 
 [node name="NodeList" parent="TimelineListPopUp/VBoxContainer" index="2"]
-margin_right = 198.0
-margin_bottom = 179.0
+margin_right = 240.0
+margin_bottom = 268.0
 
 [node name="NewTimelinePopup" parent="." instance=ExtResource( 3 )]
-margin_top = 44.0
-margin_right = 274.0
-margin_bottom = 136.0
+visible = true
+margin_top = 333.0
+margin_right = 306.0
+margin_bottom = 425.0
 
 [node name="CharacterListPopUp" parent="." instance=ExtResource( 2 )]
 margin_top = 230.0
@@ -174,7 +176,6 @@ margin_bottom = 179.0
 margin_top = 44.0
 margin_right = 274.0
 margin_bottom = 136.0
-
 [connection signal="pressed" from="PanelContainer/ToolButtons/TimelinesButton" to="." method="_on_TimelinesButton_pressed"]
 [connection signal="pressed" from="PanelContainer/ToolButtons/CharactersButton" to="." method="_on_CharactersButton_pressed"]
 [connection signal="pressed" from="PanelContainer/ToolButtons/VariablesButton" to="." method="_on_VariablesButton_pressed"]
@@ -189,4 +190,5 @@ margin_bottom = 136.0
 [connection signal="confirmed" from="NewCharacterPopup" to="." method="_on_NewCharacterPopup_confirmed"]
 
 [editable path="TimelineListPopUp"]
+
 [editable path="CharacterListPopUp"]

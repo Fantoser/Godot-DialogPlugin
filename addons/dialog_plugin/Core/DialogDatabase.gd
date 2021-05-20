@@ -16,6 +16,18 @@ class _DB:
 	static func add(name) -> void:
 		assert(false)
 	
+	static func get_resource(name:String) -> DialogDatabaseResource:
+		var _file = null
+		for file in get_database():
+			if file.resource_path.get_file().replace(".tres", "") == name:
+				_file = file
+				break
+		
+		return _file
+	
+	static func get_type(databaseResource) -> DialogDatabaseResource:
+#		print(databaseResource)
+		return(databaseResource.type)
 #	static func get_*() -> Array:
 
 
@@ -60,6 +72,7 @@ class Characters extends _DB:
 	
 	static func add(name:String) -> void:
 		var file_name:String = "{name}.tres".format({"name":name})
+		print(file_name)
 		var file_path:String = DialogResources.CHARACTERS_DIR+file_name
 		var _n_char:DialogCharacterResource = DialogCharacterResource.new() if not ResourceLoader.exists(file_path) else ResourceLoader.load(file_path)
 		
@@ -84,7 +97,6 @@ class Characters extends _DB:
 				break
 		
 		return _character
-
 
 class Definitions extends _DB:
 	pass

@@ -54,6 +54,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialog_plugin/Resources/EventResource.gd"
 }, {
+"base": "Resource",
+"class": "DialogFileArray",
+"language": "GDScript",
+"path": "res://addons/dialog_plugin/Other/dialogfile_array.gd"
+}, {
+"base": "Resource",
+"class": "DialogFileResource",
+"language": "GDScript",
+"path": "res://addons/dialog_plugin/Resources/DialogFileResource.gd"
+}, {
+"base": "Resource",
+"class": "DialogMoodResource",
+"language": "GDScript",
+"path": "res://addons/dialog_plugin/Resources/MoodResource.gd"
+}, {
 "base": "Control",
 "class": "DialogPortraitManager",
 "language": "GDScript",
@@ -114,6 +129,9 @@ _global_script_class_icons={
 "DialogDialogueNode": "",
 "DialogEditorEventNode": "",
 "DialogEventResource": "",
+"DialogFileArray": "",
+"DialogFileResource": "",
+"DialogMoodResource": "",
 "DialogPortraitManager": "",
 "DialogPortraitResource": "",
 "DialogTextEvent": "",
@@ -149,7 +167,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/WAT/plugin.cfg", "res://addons/dialog_plugin/plugin.cfg", "res://addons/godot-plugin-refresher/plugin.cfg" )
+enabled=PoolStringArray( "dialog_plugin" )
 
 [importer_defaults]
 
@@ -173,6 +191,12 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+
+[locale]
+
+test="en"
+Translations=PoolStringArray(  )
+translations=PoolStringArray(  )
 
 [rendering]
 

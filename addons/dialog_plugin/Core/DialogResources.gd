@@ -3,6 +3,7 @@ tool
 const DB_PATH = "res://addons/dialog_plugin/Database/"
 const TIMELINEDB_PATH = DB_PATH+"SavedTimelines.tres"
 const CHARACTERDB_PATH = DB_PATH+"SavedCharacters.tres"
+const DIALOGFILEDB_PATH = DB_PATH+"SavedDialogFiles.tres"
 const EDITOR_i18n_PATH = DB_PATH+"Editor_i18n.tres"
 const TRANSLATIONSDB_PATH = DB_PATH+"SavedTranslations.tres"
 
@@ -15,6 +16,7 @@ const RESOURCES_DIR = "res://dialog_files/"
 const TIMELINES_DIR = RESOURCES_DIR+"timelines/"
 const CHARACTERS_DIR = RESOURCES_DIR+"characters/"
 const TRANSLATIONS_DIR = RESOURCES_DIR+"translations/"
+const MOODS_DIR = RESOURCES_DIR+"moods/"
 
 const ICON_PATH_DARK = "res://addons/dialog_plugin/assets/Images/Plugin/plugin-editor-icon-dark-theme.svg"
 const ICON_PATH_LIGHT = "res://addons/dialog_plugin/assets/Images/Plugin/plugin-editor-icon-light-theme.svg"
