@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://addons/dialog_plugin/Resources/Database/Editor_i18n_DatabaseResource.gd" type="Script" id=1]
+[ext_resource path="res://addons/dialog_plugin/Other/resource_array.gd" type="Script" id=2]
+[ext_resource path="res://addons/dialog_plugin/editor_translations/dialogplugin_editor.en.translation" type="Translation" id=3]
+[ext_resource path="res://addons/dialog_plugin/editor_translations/dialogplugin_editor.es.translation" type="Translation" id=4]
+[ext_resource path="res://addons/dialog_plugin/editor_translations/dialogplugin_errors.en.translation" type="Translation" id=5]
+[ext_resource path="res://addons/dialog_plugin/editor_translations/dialogplugin_errors.es.translation" type="Translation" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+_resources = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+values/0 = ExtResource( 3 )
+values/1 = ExtResource( 4 )
+values/2 = ExtResource( 5 )
+values/3 = ExtResource( 6 )
+
+[resource]
+script = ExtResource( 1 )
+resources = SubResource( 1 )
