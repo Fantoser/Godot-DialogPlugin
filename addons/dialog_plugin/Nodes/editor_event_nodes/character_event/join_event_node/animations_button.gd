@@ -5,8 +5,8 @@ func _ready() -> void:
 	_add_items()
 
 func _clear_items() -> void:
-	for _item_idx in range(get_item_count()):
-		var _idx = clamp(_item_idx-1, 0, get_item_count())
+	for _item_idx in range(get_item_count()-1):
+		var _idx = clamp(_item_idx-1, 0, get_item_count()-1)
 		remove_item(_idx)
 
 func _add_items() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/dialog_plugin/Editor/Views/timeline_editor/timeline_editor_view.gd" type="Script" id=1]
 [ext_resource path="res://addons/dialog_plugin/assets/Themes/styleboxflat_title_header.tres" type="StyleBox" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/dialog_plugin/Nodes/editor_event_buttons/text_event_button/dialog_event_button.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/dialog_plugin/Nodes/editor_event_buttons/wait_time_event_button/wait_time_event_button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/dialog_plugin/Nodes/editor_event_buttons/character_event_button/join_event_button/join_event_button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://addons/dialog_plugin/Editor/Views/timeline_editor/text editor/text_editor.tscn" type="PackedScene" id=10]
 
 [node name="TimelineEditorView" type="Control"]
 anchor_right = 1.0
@@ -184,9 +185,12 @@ margin_left = 30.8155
 margin_top = -169.552
 margin_right = 140.815
 margin_bottom = -54.552
+
+[node name="Text editor" parent="." instance=ExtResource( 10 )]
 [connection signal="item_selected" from="VBoxContainer/PanelContainer/VBoxContainer/ControlPanel/PanelContainer2/HBoxContainer/LocaleList" to="." method="_on_LocaleList_item_selected"]
 [connection signal="item_added" from="VBoxContainer/HSplitContainer/ScrollContainer/TimelineEventsContainer" to="." method="_on_TimelineEventsContainer_item_added"]
 [connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/TextEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
 [connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/GenericEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
 [connection signal="pressed" from="VBoxContainer/HSplitContainer/VBoxContainer/JoinEventButton" to="." method="_on_EventButtonsContainer_event_pressed"]
 [connection signal="event_pressed" from="EventButtonsContainer" to="." method="_on_EventButtonsContainer_event_pressed"]
+[connection signal="Cancel_called" from="Text editor" to="." method="_on_Text_editor_Cancel_called"]

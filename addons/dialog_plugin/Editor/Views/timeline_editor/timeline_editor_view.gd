@@ -66,6 +66,8 @@ func _load_events() -> void:
 		event_node.idx = _idx
 		_idx += 1
 	
+		if event is DialogTextEvent:
+			event_node.connect("text_editor_selected", self, "open_text_editor")
 	if selected_event_idx != -1:
 		event_nodes[selected_event_idx].call_deferred("grab_focus")
 
@@ -147,3 +149,10 @@ func _on_LocaleList_item_selected(index: int) -> void:
 		_locale = ""
 	ProjectSettings.set_setting("locale/test", _locale)
 	_load_events()
+
+func open_text_editor(event_node):
+	$"Text editor".set_text(event_node)
+	$"Text editor".popup_centered_ratio(0.7)
+
+func _on_Text_editor_Cancel_called():
+	$"Text editor".hide()

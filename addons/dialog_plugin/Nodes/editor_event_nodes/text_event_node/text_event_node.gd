@@ -9,7 +9,7 @@ onready var text_edit_node = get_node_or_null(TextEdit_path)
 onready var character_button_node = get_node_or_null(CharacterBtn_path)
 onready var translation_key_label_node = get_node_or_null(TranslationKeyLabel_path)
 
-signal text_editor_selected()
+signal text_editor_selected(event_node)
 
 func _ready() -> void:
 	if base_resource:
@@ -79,4 +79,4 @@ func _on_TranslationKey_focus_exited() -> void:
 
 
 func _on_Edit_text_pressed():
-	emit_signal("text_editor_selected")
+	emit_signal("text_editor_selected", self)

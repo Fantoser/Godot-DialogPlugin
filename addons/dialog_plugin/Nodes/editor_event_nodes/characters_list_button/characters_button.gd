@@ -12,7 +12,7 @@ func _ready() -> void:
 	_char_db = DialogDB.Characters.get_database()
 	
 	for _item_idx in range(get_item_count()):
-		var _idx = clamp(_item_idx-1, 0, get_item_count())
+		var _idx = clamp(_item_idx-1, 0, get_item_count()-1)
 		remove_item(_idx)
 	
 	add_item("[Empty]")
